@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
+// console.log(process.env.SECRET)
+
 const express = require('express')
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
@@ -61,7 +67,7 @@ app.engine('ejs', ejsMate);
 
 
 app.use((req, res, next) => {
-    console.log(req.session);
+    // console.log(req.session);
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
