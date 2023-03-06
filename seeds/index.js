@@ -1,11 +1,16 @@
+// if (process.env.NODE_ENV !== "production") {
+//     require('dotenv').config();
+// }
 const Campground = require('../models/campground');
 const mongoose = require('mongoose');
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 
+
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp').then(() => {
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+mongoose.connect(dbUrl).then(() => {
     console.log("DataBase connected");
 }).catch(e => {
     console.log('ERROR');
