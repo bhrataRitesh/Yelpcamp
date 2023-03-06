@@ -20,6 +20,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const serverless = require('serverless-http');
 
 
 const campgroundRoutes = require('./routes/campgrounds');
@@ -189,10 +190,10 @@ app.use((err, req, res, next) => {
     // res.send('Oh Boy, Something went wrong')
 })
 
+module.exports.handler = serverless(app);
 
-
-const port = process.env.PORT || 3030;
-app.listen(port, () => {
-    console.log(`listening ${port}`)
-})
+// const port = process.env.PORT || 3030;
+// app.listen(port, () => {
+//     console.log(`listening ${port}`)
+// })
 
