@@ -29,7 +29,7 @@ const userRoutes = require('./routes/users');
 
 const MongoDBStore = require("connect-mongo")(session);
 
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
 
 
 
@@ -190,10 +190,10 @@ app.use((err, req, res, next) => {
     // res.send('Oh Boy, Something went wrong')
 })
 
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
 
-// const port = process.env.PORT || 3030;
-// app.listen(port, () => {
-//     console.log(`listening ${port}`)
-// })
+const port = process.env.PORT || 3030;
+app.listen(port, () => {
+    console.log(`listening ${port}`)
+})
 
