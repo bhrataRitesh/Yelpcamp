@@ -1,6 +1,6 @@
-// if (process.env.NODE_ENV !== "production") {
-//     require('dotenv').config();
-// }
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
 const Campground = require('../models/campground');
 const mongoose = require('mongoose');
 const cities = require('./cities');
@@ -9,7 +9,7 @@ const { places, descriptors } = require('./seedHelpers');
 
 mongoose.set('strictQuery', false);
 
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = process.env.DB_URL;
 mongoose.connect(dbUrl).then(() => {
     console.log("DataBase connected");
 }).catch(e => {
@@ -31,7 +31,7 @@ const seedDB = async () => {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
-            author: '63fe2c25d2800169531ffa19',
+            author: '640827ca34c0acb1c12b2741',
             location: `${cities[random1000].city},${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             // image: 'https://source.unsplash.com/collection/483251',
