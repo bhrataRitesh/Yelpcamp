@@ -12,7 +12,7 @@ const Campground = require('./models/campground')
 const ejsMate = require('ejs-mate')
 const catchAsync = require("./utils/catchAsync")
 const ExpressError = require("./utils/ExpressError")
-const Joi = require('joi')
+// const Joi = require('joi')
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
@@ -20,7 +20,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-const serverless = require('serverless-http');
+
 
 
 const campgroundRoutes = require('./routes/campgrounds');
