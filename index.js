@@ -187,10 +187,9 @@ app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something Went Wrong' } = err;
     if (!err.message) err.message = 'Oh No, Something WEnt wrong!'
     res.status(statusCode).render('error', { err });
-    // res.send('Oh Boy, Something went wrong')
 })
 
-// module.exports.handler = serverless(app);
+
 
 const port = process.env.PORT || 3030;
 app.listen(port, () => {
